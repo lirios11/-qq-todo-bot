@@ -197,7 +197,7 @@ python main.py serve --port 8090                     # 打开 http://127.0.0.1:8
 
 ## 数据存在哪儿、长什么样
 
-每条待办都带**来源清单**和**时间来源标记**：
+每条待办都带**来源清单**和**时间来源标记**（下面示例里的群名、人名都是编的）：
 
 ```json
 {
@@ -209,9 +209,9 @@ python main.py serve --port 8090                     # 打开 http://127.0.0.1:8
   "deadline_raw": "今晚9点前",           // 原文里的那句话，保留可追溯
   "event_key": "a1b2c3d4e5f6",
   "sources": [
-    {"group": "计科2605班级群", "sender": "陈柏函", "msg_id": "101",
+    {"group": "计科2班班群", "sender": "班长·小林", "msg_id": "101",
      "time": "2026-10-26 15:10", "quote": "……", "confidence": "exact"},
-    {"group": "2026级计科群", "sender": "刘晓瑞", "msg_id": "102",
+    {"group": "2026级计科年级群", "sender": "辅导员·周老师", "msg_id": "102",
      "time": "2026-10-26 15:25", "quote": "……", "confidence": "matched"}
   ]
 }

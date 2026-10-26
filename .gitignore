@@ -3,6 +3,7 @@ config.json
 /todos.json
 /seen.json
 /ignore_keywords.json
+/enabled.flag
 /logs/
 *.bak
 

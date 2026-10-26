@@ -104,7 +104,14 @@ powershell -ExecutionPolicy Bypass -File install.ps1
 
 看到 `看板已在后台运行：http://127.0.0.1:8080` 就成功了，浏览器打开这个地址即可。
 
-**不想装计划任务**，只想临时跑：双击 `start.bat`。它会先探测后台服务——已经在跑就直接打开看板，没跑才以前台方式临时启动（关窗口就停，仅调试用）。
+## 日常开关：start.bat 开、stop.bat 关
+
+| 双击 | 做的事 |
+|---|---|
+| `start.bat` | 写开关标志 → 确保开机自启任务是启用的 → 后台启动（无黑窗）→ 自动打开看板。已经在跑就只打开看板。 |
+| `stop.bat` | 删开关标志 → 停掉后台主进程 → 停掉 NapCat → 取消开机自启。内存立刻释放，数据不丢。 |
+
+不想让它一直占内存就用完双击 `stop.bat`，下次想用再双击 `start.bat`。**关键**：`stop.bat` 会删掉 `enabled.flag`，看门狗探测到没有这个标志就**不会**再把程序偷偷拉起来。
 
 ---
 
@@ -113,6 +120,7 @@ powershell -ExecutionPolicy Bypass -File install.ps1
 - 触发条件：**当前用户登录桌面时**（不需要管理员权限，不登录桌面不会跑）
 - 运行方式：`pythonw.exe main.py --background`，无窗口，工作目录固定在项目目录
 - **看门狗兜底**：另有一个每 2 分钟探测端口的任务 `QQTodoBot-Watchdog`。Windows 计划任务自带的"失败后重启"在进程被强杀时不会触发，所以真正把服务拉回来的是这一层（实测杀掉进程后 40 秒左右自动恢复）。
+- **开关标志**：`start.bat` 会写一个 `enabled.flag`，`stop.bat` 会删掉它。看门狗只有在这个文件存在时才复活程序；被主动停用后即使看板没响应，它也只在 `logs/watchdog.log` 记一行"用户已停用，跳过拉起"，不会偷偷把你唤醒。
 - 日志：`logs/app.log`（超过 2MB 自动滚动成 `app.log.1`）；看门狗自己的记录在 `logs/watchdog.log`
 
 常用命令：
@@ -288,8 +296,9 @@ qq-todo-bot/
 ├── requirements.txt      # 依赖
 ├── install.ps1           # 一键注册开机自启（主任务 + 看门狗）并启动
 ├── uninstall.ps1         # 卸载两个计划任务并结束后台进程
-├── watchdog.ps1          # 看门狗：每 2 分钟探测看板，挂掉自动拉起
-├── start.bat             # 双击即用：服务在跑就开看板，没跑就前台临时启动
+├── watchdog.ps1          # 看门狗：每 2 分钟探测看板，挂了才拉起（无 enabled.flag 则跳过）
+├── start.bat             # 双击启动：写开关标志、后台拉起、打开看板
+├── stop.bat              # 双击停止：删开关标志、停主进程和 NapCat、取消自启
 ├── web/index.html        # 待办看板（单文件，零外部依赖，可离线打开样式）
 ├── web/setup.html        # 配置向导（填 Key / NapCat，点测试即验证）
 ├── tools/make_demo_data.py  # 生成假演示数据（截图、演示用）

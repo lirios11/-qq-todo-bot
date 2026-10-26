@@ -1,0 +1,386 @@
+{
+  "todos": [
+    {
+      "title": "填写并提交乙肝疫苗接种统计表（附件3）",
+      "detail": "填附件3，私聊发给班长；先看附件1确认自己是否已经在名单里",
+      "start_at": null,
+      "deadline": "2026-10-26 21:00",
+      "deadline_basis": "inferred",
+      "deadline_raw": "今晚9点前",
+      "published_at": "2026-10-26 15:10",
+      "event_key": "demo-1",
+      "sources": [
+        {
+          "group": "计科2班班群",
+          "group_id": 1101,
+          "sender": "班长·小林",
+          "msg_id": "101",
+          "time": "2026-10-26 15:10",
+          "quote": "请各位同学今晚9点前把乙肝疫苗接种统计表（附件3）填好，私聊发给我",
+          "confidence": "exact"
+        },
+        {
+          "group": "2026级计科年级群",
+          "group_id": 1102,
+          "sender": "辅导员·周老师",
+          "msg_id": "102",
+          "time": "2026-10-26 15:25",
+          "quote": "转发：乙肝疫苗接种统计表（附件3）今晚9点前交给班级负责人",
+          "confidence": "matched"
+        }
+      ],
+      "done": false,
+      "created": "2026-10-26 15:10",
+      "id": "demo-01",
+      "source_count": 2,
+      "source_confidence": "exact",
+      "source_quote": "请各位同学今晚9点前把乙肝疫苗接种统计表（附件3）填好，私聊发给我",
+      "source_msg_id": "101",
+      "group": "计科2班班群",
+      "sender": "班长·小林",
+      "start_time": null
+    },
+    {
+      "title": "提交实验报告纸质版",
+      "detail": "纸质版交到教4203，电子版发课程邮箱；逾期不收",
+      "start_at": null,
+      "deadline": "2026-10-26 23:30",
+      "deadline_basis": "inferred",
+      "deadline_raw": "今天晚上十一点半前",
+      "published_at": "2026-10-26 09:40",
+      "event_key": "demo-2",
+      "sources": [
+        {
+          "group": "计科2班班群",
+          "group_id": 1103,
+          "sender": "学委·阿哲",
+          "msg_id": "103",
+          "time": "2026-10-26 09:40",
+          "quote": "今天晚上十一点半前把实验报告纸质版交到教4203",
+          "confidence": "exact"
+        }
+      ],
+      "done": false,
+      "created": "2026-10-26 09:40",
+      "id": "demo-02",
+      "source_count": 1,
+      "source_confidence": "exact",
+      "source_quote": "今天晚上十一点半前把实验报告纸质版交到教4203",
+      "source_msg_id": "103",
+      "group": "计科2班班群",
+      "sender": "学委·阿哲",
+      "start_time": null
+    },
+    {
+      "title": "报名“正大杯”市场调查大赛并缴费",
+      "detail": "本科A类竞赛；团队3-5人，可跨专业组队；缴费后才能提交作品",
+      "start_at": null,
+      "deadline": "2026-10-28 20:00",
+      "deadline_basis": "explicit",
+      "deadline_raw": "10月28日20:00截止",
+      "published_at": "2026-10-25 11:11",
+      "event_key": "demo-3",
+      "sources": [
+        {
+          "group": "计科2班班群",
+          "group_id": 1104,
+          "sender": "封心锁爱",
+          "msg_id": "104",
+          "time": "2026-10-25 11:11",
+          "quote": "报名截止10月28日20:00，缴费后才能提交作品",
+          "confidence": "exact"
+        }
+      ],
+      "done": false,
+      "created": "2026-10-25 11:11",
+      "id": "demo-03",
+      "source_count": 1,
+      "source_confidence": "exact",
+      "source_quote": "报名截止10月28日20:00，缴费后才能提交作品",
+      "source_msg_id": "104",
+      "group": "计科2班班群",
+      "sender": "封心锁爱",
+      "start_time": null
+    },
+    {
+      "title": "到教4303晚自习并签到",
+      "detail": "今晚7点到9点，班长点名",
+      "start_at": "2026-10-26 19:00",
+      "deadline": null,
+      "deadline_basis": "none",
+      "deadline_raw": null,
+      "published_at": "2026-10-26 12:05",
+      "event_key": "demo-4",
+      "sources": [
+        {
+          "group": "计科2班班群",
+          "group_id": 1105,
+          "sender": "班长·小林",
+          "msg_id": "105",
+          "time": "2026-10-26 12:05",
+          "quote": "今晚7点到9点在教4303晚自习，记得签到",
+          "confidence": "exact"
+        }
+      ],
+      "done": false,
+      "created": "2026-10-26 12:05",
+      "id": "demo-04",
+      "source_count": 1,
+      "source_confidence": "exact",
+      "source_quote": "今晚7点到9点在教4303晚自习，记得签到",
+      "source_msg_id": "105",
+      "group": "计科2班班群",
+      "sender": "班长·小林",
+      "start_time": "2026-10-26 19:00"
+    },
+    {
+      "title": "扫码加入 iCAN 大赛培训群",
+      "detail": "学院王老师负责；本月邀请企业 AI 创作导师培训，直接扫码进群",
+      "start_at": null,
+      "deadline": null,
+      "deadline_basis": "none",
+      "deadline_raw": null,
+      "published_at": "2026-10-26 11:11",
+      "event_key": "demo-5",
+      "sources": [
+        {
+          "group": "2026级计科年级群",
+          "group_id": 1106,
+          "sender": "辅导员·周老师",
+          "msg_id": "106",
+          "time": "2026-10-26 11:11",
+          "quote": "iCAN 大赛本月培训群二维码在群里，尽快扫码加入",
+          "confidence": "exact"
+        }
+      ],
+      "done": false,
+      "created": "2026-10-26 11:11",
+      "id": "demo-05",
+      "source_count": 1,
+      "source_confidence": "exact",
+      "source_quote": "iCAN 大赛本月培训群二维码在群里，尽快扫码加入",
+      "source_msg_id": "106",
+      "group": "2026级计科年级群",
+      "sender": "辅导员·周老师",
+      "start_time": null
+    },
+    {
+      "title": "报名校级趣味运动会",
+      "detail": "通过班级链接报名，统一补签",
+      "start_at": null,
+      "deadline": null,
+      "deadline_basis": "none",
+      "deadline_raw": null,
+      "published_at": "2026-10-24 10:00",
+      "event_key": "demo-6",
+      "sources": [
+        {
+          "group": "计科2班班群",
+          "group_id": 1107,
+          "sender": "体育委员·大鹏",
+          "msg_id": "107",
+          "time": "2026-10-24 10:00",
+          "quote": "趣味运动会报名链接发群里了，想去的填一下",
+          "confidence": "exact"
+        }
+      ],
+      "done": false,
+      "created": "2026-10-24 10:00",
+      "id": "demo-06",
+      "source_count": 1,
+      "source_confidence": "exact",
+      "source_quote": "趣味运动会报名链接发群里了，想去的填一下",
+      "source_msg_id": "107",
+      "group": "计科2班班群",
+      "sender": "体育委员·大鹏",
+      "start_time": null
+    },
+    {
+      "title": "完成实验室安全教育考试并提交证书截图",
+      "detail": "在实验平台考试，80 分及格，截图发给实验室老师",
+      "start_at": null,
+      "deadline": "2026-10-25 17:00",
+      "deadline_basis": "inferred",
+      "deadline_raw": "本周日前完成",
+      "published_at": "2026-10-22 16:00",
+      "event_key": "demo-7",
+      "sources": [
+        {
+          "group": "2026级计科年级群",
+          "group_id": 1108,
+          "sender": "实验室·陈老师",
+          "msg_id": "108",
+          "time": "2026-10-22 16:00",
+          "quote": "本周日前完成实验室安全教育考试，把证书截图发我",
+          "confidence": "exact"
+        }
+      ],
+      "done": false,
+      "created": "2026-10-22 16:00",
+      "id": "demo-07",
+      "source_count": 1,
+      "source_confidence": "exact",
+      "source_quote": "本周日前完成实验室安全教育考试，把证书截图发我",
+      "source_msg_id": "108",
+      "group": "2026级计科年级群",
+      "sender": "实验室·陈老师",
+      "start_time": null
+    },
+    {
+      "title": "绑定雨课堂身份",
+      "detail": "大学英语课要求，绑定后课堂互动才计分",
+      "start_at": null,
+      "deadline": null,
+      "deadline_basis": "none",
+      "deadline_raw": null,
+      "published_at": "2026-10-23 08:30",
+      "event_key": "demo-8",
+      "sources": [
+        {
+          "group": "大学英语（3）课程群",
+          "group_id": 1109,
+          "sender": "任课老师·李",
+          "msg_id": "109",
+          "time": "2026-10-23 08:30",
+          "quote": "还没绑定雨课堂的同学尽快绑定，影响平时分",
+          "confidence": "exact"
+        }
+      ],
+      "done": false,
+      "created": "2026-10-23 08:30",
+      "id": "demo-08",
+      "source_count": 1,
+      "source_confidence": "exact",
+      "source_quote": "还没绑定雨课堂的同学尽快绑定，影响平时分",
+      "source_msg_id": "109",
+      "group": "大学英语（3）课程群",
+      "sender": "任课老师·李",
+      "start_time": null
+    },
+    {
+      "title": "准备第 9 周词汇语法测试",
+      "detail": "范围：Unit 1-2 词汇 + 语法填空",
+      "start_at": null,
+      "deadline": "2026-10-30 08:00",
+      "deadline_basis": "inferred",
+      "deadline_raw": "下周一上课时测",
+      "published_at": "2026-10-25 20:00",
+      "event_key": "demo-9",
+      "sources": [
+        {
+          "group": "大学英语（3）课程群",
+          "group_id": 1110,
+          "sender": "任课老师·李",
+          "msg_id": "110",
+          "time": "2026-10-25 20:00",
+          "quote": "下周一上课时做第9周词汇语法测试，范围Unit1-2",
+          "confidence": "exact"
+        }
+      ],
+      "done": false,
+      "created": "2026-10-25 20:00",
+      "id": "demo-09",
+      "source_count": 1,
+      "source_confidence": "exact",
+      "source_quote": "下周一上课时做第9周词汇语法测试，范围Unit1-2",
+      "source_msg_id": "110",
+      "group": "大学英语（3）课程群",
+      "sender": "任课老师·李",
+      "start_time": null
+    },
+    {
+      "title": "填写学生会纳新报名表（电子版 + 纸质版）",
+      "detail": "纸质版交到团委办公室，电子版发邮箱",
+      "start_at": null,
+      "deadline": "2026-10-21 18:00",
+      "deadline_basis": "inferred",
+      "deadline_raw": "上周五下午6点前",
+      "published_at": "2026-10-18 09:00",
+      "event_key": "demo-10",
+      "sources": [
+        {
+          "group": "青年发展部纳新群",
+          "group_id": 1111,
+          "sender": "部长·Atthree",
+          "msg_id": "111",
+          "time": "2026-10-18 09:00",
+          "quote": "报名表周五下午6点前交，纸质版送到团委",
+          "confidence": "exact"
+        }
+      ],
+      "done": true,
+      "created": "2026-10-18 09:00",
+      "id": "demo-10",
+      "source_count": 1,
+      "source_confidence": "exact",
+      "source_quote": "报名表周五下午6点前交，纸质版送到团委",
+      "source_msg_id": "111",
+      "group": "青年发展部纳新群",
+      "sender": "部长·Atthree",
+      "start_time": null
+    },
+    {
+      "title": "参加新生入学教育会议",
+      "detail": "图书馆报告厅，提前十分钟入场",
+      "start_at": null,
+      "deadline": null,
+      "deadline_basis": "none",
+      "deadline_raw": null,
+      "published_at": "2026-10-10 14:00",
+      "event_key": "demo-11",
+      "sources": [
+        {
+          "group": "计科2班班群",
+          "group_id": 1112,
+          "sender": "班长·小林",
+          "msg_id": "112",
+          "time": "2026-10-10 14:00",
+          "quote": "明天下午两点图书馆报告厅开新生入学教育会，提前十分钟到",
+          "confidence": "exact"
+        }
+      ],
+      "done": true,
+      "created": "2026-10-10 14:00",
+      "id": "demo-11",
+      "source_count": 1,
+      "source_confidence": "exact",
+      "source_quote": "明天下午两点图书馆报告厅开新生入学教育会，提前十分钟到",
+      "source_msg_id": "112",
+      "group": "计科2班班群",
+      "sender": "班长·小林",
+      "start_time": null
+    },
+    {
+      "title": "按要求购买医保",
+      "detail": "在校园统一缴费平台操作",
+      "start_at": null,
+      "deadline": null,
+      "deadline_basis": "none",
+      "deadline_raw": null,
+      "published_at": "2026-10-06 10:00",
+      "event_key": "demo-12",
+      "sources": [
+        {
+          "group": "计科2班班群",
+          "group_id": 1113,
+          "sender": "辅导员·周老师",
+          "msg_id": "113",
+          "time": "2026-10-06 10:00",
+          "quote": "医保还没买的同学这两天在平台买一下",
+          "confidence": "exact"
+        }
+      ],
+      "done": true,
+      "created": "2026-10-06 10:00",
+      "id": "demo-12",
+      "source_count": 1,
+      "source_confidence": "exact",
+      "source_quote": "医保还没买的同学这两天在平台买一下",
+      "source_msg_id": "113",
+      "group": "计科2班班群",
+      "sender": "辅导员·周老师",
+      "start_time": null
+    }
+  ],
+  "schema_version": 2
+}

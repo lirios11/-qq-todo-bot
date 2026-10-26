@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>配置 QQ 待办助手</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232f6f5e'/%3E%3Cpath d='M9 16.5l5 5 9-10' stroke='%23fff' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #f6f3ec; --bg-soft: #efeae0; --card: #fffdf8;
+    --ink: #18211d; --ink-2: #46524b; --muted: #78837c;
+    --line: #e3ddd0; --line-2: #d5cdbc;
+    --pine: #2f6f5e; --pine-soft: #e3efe8;
+    --amber: #b0741b; --amber-soft: #f8ebd2;
+    --rose: #b1433c; --rose-soft: #f8e3e0;
+    --shadow: 0 1px 2px rgba(34,28,18,.05), 0 12px 32px rgba(34,28,18,.07);
+  }
+  html[data-theme="dark"] {
+    --bg: #121814; --bg-soft: #182019; --card: #1b231e;
+    --ink: #e9f0ea; --ink-2: #c2cec6; --muted: #8b9891;
+    --line: #2b3530; --line-2: #38443d;
+    --pine: #6fbfa3; --pine-soft: #1e322a;
+    --amber: #e0a95a; --amber-soft: #33291a;
+    --rose: #e8857d; --rose-soft: #3a201e;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 12px 32px rgba(0,0,0,.3);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: "Inter", "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+    background: var(--bg); color: var(--ink); font-size: 14px;
+    min-height: 100vh; display: flex; justify-content: center;
+    padding: 34px 18px 70px;
+  }
+  .shell { width: 100%; max-width: 760px; }
+  .top { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+  .logo {
+    width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center;
+    background: linear-gradient(140deg, var(--pine), #27567f); color: #fff; font-weight: 700; font-size: 15px;
+  }
+  h1 { font-size: 21px; font-weight: 700; letter-spacing: .2px; }
+  .sub { color: var(--muted); font-size: 13px; margin: 6px 0 22px; line-height: 1.7; }
+  .sub a { color: var(--pine); text-decoration: none; border-bottom: 1px dashed var(--pine); }
+  .theme { margin-left: auto; font-size: 12px; color: var(--ink-2); border: 1px solid var(--line-2); padding: 5px 10px; border-radius: 8px; background: none; cursor: pointer; }
+
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px 22px; margin-bottom: 14px; box-shadow: var(--shadow); }
+  .step-head { display: flex; align-items: center; gap: 10px; margin-bottom: 4px; }
+  .num {
+    width: 22px; height: 22px; border-radius: 7px; flex: none;
+    background: var(--pine-soft); color: var(--pine); font-size: 12px; font-weight: 700;
+    display: grid; place-items: center;
+  }
+  .step-head b { font-size: 15px; }
+  .tag {
+    margin-left: auto; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 999px;
+    background: var(--bg-soft); color: var(--muted);
+  }
+  .tag.ok { background: var(--pine-soft); color: var(--pine); }
+  .tag.bad { background: var(--rose-soft); color: var(--rose); }
+  .hint { color: var(--muted); font-size: 12.5px; line-height: 1.7; margin: 4px 0 14px; }
+  .hint code { background: var(--bg-soft); padding: 1px 5px; border-radius: 4px; font-size: 12px; }
+
+  label { display: block; font-size: 12.5px; color: var(--ink-2); margin: 12px 0 5px; font-weight: 600; }
+  .field { display: flex; gap: 8px; }
+  input[type=text], input[type=password] {
+    flex: 1; min-width: 0; padding: 9px 12px; border-radius: 10px;
+    border: 1px solid var(--line); background: var(--bg); color: var(--ink);
+    font: inherit; outline: none;
+  }
+  input:focus { border-color: var(--pine); box-shadow: 0 0 0 3px var(--pine-soft); }
+  input::placeholder { color: var(--muted); }
+  .btn {
+    padding: 9px 14px; border-radius: 10px; border: 1px solid var(--line-2);
+    background: var(--card); color: var(--ink); font: inherit; font-size: 13px; cursor: pointer; white-space: nowrap;
+  }
+  .btn:hover { border-color: var(--pine); color: var(--pine); }
+  .btn:disabled { opacity: .55; cursor: default; }
+  .btn.primary { background: var(--pine); border-color: var(--pine); color: #fff; font-weight: 600; }
+  .btn.primary:hover { filter: brightness(1.06); color: #fff; }
+
+  .result { margin-top: 10px; font-size: 12.5px; line-height: 1.6; padding: 8px 11px; border-radius: 9px; display: none; }
+  .result.show { display: block; }
+  .result.ok { background: var(--pine-soft); color: var(--pine); }
+  .result.bad { background: var(--rose-soft); color: var(--rose); }
+
+  .foot { display: flex; align-items: center; gap: 12px; margin-top: 18px; flex-wrap: wrap; }
+  .foot .note { font-size: 12.5px; color: var(--muted); }
+  .foot a.skip { color: var(--muted); font-size: 12.5px; text-decoration: underline; text-underline-offset: 2px; }
+  .saved { font-size: 12.5px; color: var(--pine); }
+
+  .facts { display: grid; grid-template-columns: 92px 1fr; gap: 5px 12px; font-size: 12.5px; color: var(--ink-2); margin-top: 6px; }
+  .facts .k { color: var(--muted); }
+  .facts .v { word-break: break-all; font-family: "Cascadia Mono", Consolas, monospace; font-size: 12px; }
+
+  #toast {
+    position: fixed; left: 50%; bottom: 26px; transform: translateX(-50%) translateY(14px);
+    background: var(--ink); color: var(--bg); padding: 9px 18px; border-radius: 10px;
+    font-size: 13px; opacity: 0; pointer-events: none; transition: .22s; z-index: 90;
+  }
+  #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  @media (max-width: 560px) {
+    .field { flex-direction: column; }
+    .card { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+  <div class="top">
+    <div class="logo">//</div>
+    <h1>配好第三步，就能用了</h1>
+    <button class="theme" id="themeBtn" type="button">切换深色</button>
+  </div>
+  <p class="sub">
+    这里填的东西会写进 <code id="dataDir">config.json</code>，不会上传到任何服务器。<br>
+    只填 DeepSeek Key 就能用；NapCat 那一段是为了让它自动帮你抓消息，可以稍后再填。
+    想先看看看板长什么样？<a href="/?skip=1">直接进入看板</a>。
+  </p>
+
+  <section class="card">
+    <div class="step-head">
+      <span class="num">1</span>
+      <b>DeepSeek API Key</b>
+      <span class="tag" id="keyTag">未配置</span>
+    </div>
+    <p class="hint">
+      去 <a href="https://platform.deepseek.com/api_keys" target="_blank" rel="noopener">platform.deepseek.com</a>
+      创建一个 Key（<code>sk-</code> 开头），粘贴到下面。Key 只存在本机的 config.json 里；
+      也可以用环境变量 <code>DEEPSEEK_API_KEY</code> 覆盖。
+    </p>
+    <label for="key">API Key</label>
+    <div class="field">
+      <input id="key" type="password" placeholder="sk-..." autocomplete="off" spellcheck="false">
+      <button class="btn" id="keyTest" type="button">测试</button>
+    </div>
+    <div class="result" id="keyResult"></div>
+  </section>
+
+  <section class="card">
+    <div class="step-head">
+      <span class="num">2</span>
+      <b>NapCat（读 QQ 群消息）</b>
+      <span class="tag" id="napcatTag">未检测</span>
+    </div>
+    <p class="hint">
+      NapCat 装好并登录一次之后，填上它的 HTTP 地址、token 和 QQ 号，程序以后就能免扫码自己拉起它。
+      不确定路径可以点「自动查找」。
+    </p>
+    <label for="baseUrl">OneBot HTTP 地址</label>
+    <div class="field">
+      <input id="baseUrl" type="text" placeholder="http://127.0.0.1:3000">
+      <button class="btn" id="napcatTest" type="button">测试连接</button>
+    </div>
+    <label for="token">Access Token（没有就留空）</label>
+    <input id="token" type="text" placeholder="NapCat 里配置的 token">
+    <label for="qq">QQ 号（用于免扫码快速登录）</label>
+    <input id="qq" type="text" placeholder="例如 123456789" inputmode="numeric">
+    <label for="exe">NapCat 主程序路径</label>
+    <div class="field">
+      <input id="exe" type="text" placeholder="C:\NapCat\NapCatWinBootMain.exe">
+      <button class="btn" id="scanBtn" type="button">自动查找</button>
+    </div>
+    <div class="result" id="napcatResult"></div>
+  </section>
+
+  <section class="card">
+    <div class="step-head">
+      <span class="num">3</span>
+      <b>保存并开始</b>
+      <span class="tag" id="saveTag">未保存</span>
+    </div>
+    <p class="hint">保存后立刻生效，不用重启。改端口除外——改端口需要重启服务。</p>
+    <div class="foot">
+      <button class="btn primary" id="saveBtn" type="button">保存配置</button>
+      <button class="btn" id="saveAndGo" type="button">保存并进入看板</button>
+      <span class="saved" id="savedMsg"></span>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="step-head">
+      <span class="num">i</span>
+      <b>当前状态</b>
+    </div>
+    <div class="facts" id="facts"></div>
+  </section>
+</div>
+<div id="toast"></div>
+
+<script>
+(function () {
+  "use strict";
+  var $ = function (id) { return document.getElementById(id); };
+
+  function toast(msg) {
+    var el = $("toast");
+    el.textContent = msg;
+    el.classList.add("show");
+    clearTimeout(el._t);
+    el._t = setTimeout(function () { el.classList.remove("show"); }, 2200);
+  }
+  function showResult(el, ok, msg) {
+    el.className = "result show " + (ok ? "ok" : "bad");
+    el.textContent = msg;
+  }
+  function setTag(el, text, cls) {
+    el.textContent = text;
+    el.className = "tag" + (cls ? " " + cls : "");
+  }
+
+  function fill(cfg) {
+    $("baseUrl").value = cfg.napcat_base_url || "";
+    $("qq").value = cfg.napcat_qq_uin || "";
+    $("exe").value = cfg.napcat_exe || "";
+    $("key").value = "";
+    $("key").placeholder = cfg.has_key ? ("已配置 " + cfg.key_masked + "（留空表示不改）") : "sk-...";
+    setTag($("keyTag"), cfg.has_key ? "已配置" : "未配置", cfg.has_key ? "ok" : "");
+    setTag($("napcatTag"), cfg.napcat_ok ? "已连接" : "未检测", cfg.napcat_ok ? "ok" : "");
+    var rows = [
+      ["API Key", cfg.has_key ? (cfg.key_from_env ? "来自环境变量 DEEPSEEK_API_KEY" : "存在 config.json（" + cfg.key_masked + "）") : "还没填"],
+      ["模型", cfg.deepseek_model || "deepseek-chat"],
+      ["NapCat 地址", cfg.napcat_base_url || "—"],
+      ["NapCat 程序", cfg.exe_found || cfg.napcat_exe || "没找到，需要手动填"],
+      ["token", cfg.napcat_token_set ? "已配置" : "未配置"],
+      ["数据目录", cfg.data_dir || "—"],
+      ["看板端口", String(cfg.board_port || 8080)]
+    ];
+    $("facts").innerHTML = rows.map(function (r) {
+      return '<div class="k">' + r[0] + '</div><div class="v">' + String(r[1]).replace(/[&<>]/g, function (c) {
+        return { "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c];
+      }) + "</div>";
+    }).join("");
+  }
+
+  function loadConfig() {
+    return fetch("/api/config", { cache: "no-store" })
+      .then(function (r) { return r.json(); })
+      .then(function (cfg) { fill(cfg); return cfg; })
+      .catch(function () { toast("连不上服务，确认程序在运行"); });
+  }
+
+  function testKey() {
+    var key = $("key").value.trim();
+    var btn = $("keyTest");
+    btn.disabled = true;
+    showResult($("keyResult"), true, "正在测试…");
+    fetch("/api/config/test", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ target: "deepseek", deepseek_api_key: key })
+    }).then(function (r) { return r.json(); }).then(function (res) {
+      showResult($("keyResult"), res.ok, res.message || (res.ok ? "可用" : "失败"));
+      setTag($("keyTag"), res.ok ? "测试通过" : "测试失败", res.ok ? "ok" : "bad");
+    }).catch(function () {
+      showResult($("keyResult"), false, "请求失败，检查服务是否在跑");
+    }).finally(function () { btn.disabled = false; });
+  }
+
+  function testNapcat() {
+    var btn = $("napcatTest");
+    btn.disabled = true;
+    showResult($("napcatResult"), true, "正在连接…");
+    // 先保存当前地址与 token，再测（否则测的还是旧配置）
+    save({ silent: true }).then(function () {
+      return fetch("/api/config/test", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ target: "napcat" })
+      });
+    }).then(function (r) { return r.json(); }).then(function (res) {
+      showResult($("napcatResult"), res.ok, res.message || "");
+      setTag($("napcatTag"), res.ok ? "已连接" : "连不上", res.ok ? "ok" : "bad");
+      if (res.ok) loadConfig();
+    }).catch(function () {
+      showResult($("napcatResult"), false, "请求失败，检查服务是否在跑");
+    }).finally(function () { btn.disabled = false; });
+  }
+
+  function payload() {
+    var body = {
+      napcat_base_url: $("baseUrl").value.trim(),
+      napcat_qq_uin: $("qq").value.trim(),
+      napcat_exe: $("exe").value.trim()
+    };
+    var key = $("key").value.trim();
+    if (key) body.deepseek_api_key = key;
+    var token = $("token").value.trim();
+    if (token) body.napcat_access_token = token;
+    return body;
+  }
+
+  function save(opts) {
+    opts = opts || {};
+    var btn = $("saveBtn");
+    if (!opts.silent) btn.disabled = true;
+    return fetch("/api/config", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload())
+    }).then(function (r) { return r.json(); }).then(function (res) {
+      if (!res.ok) throw new Error("保存失败");
+      fill(res.config);
+      var n = (res.changed || []).length;
+      if (!opts.silent) {
+        toast(n ? "已保存 " + n + " 项设置" : "没有需要改动的内容");
+        setTag($("saveTag"), "已保存", "ok");
+        $("savedMsg").textContent = res.restart_needed ? "端口改了，重启服务后生效" : "";
+      }
+      return res;
+    }).catch(function (e) {
+      if (!opts.silent) toast(e.message || "保存失败");
+      throw e;
+    }).finally(function () { if (!opts.silent) btn.disabled = false; });
+  }
+
+  $("keyTest").addEventListener("click", testKey);
+  $("napcatTest").addEventListener("click", testNapcat);
+  $("saveBtn").addEventListener("click", function () { save(); });
+  $("saveAndGo").addEventListener("click", function () {
+    save({ silent: true }).then(function () {
+      location.href = "/?skip=1";
+    }).catch(function () {});
+  });
+  $("scanBtn").addEventListener("click", function () {
+    var btn = $("scanBtn");
+    btn.disabled = true;
+    fetch("/api/napcat/scan", { cache: "no-store" })
+      .then(function (r) { return r.json(); })
+      .then(function (res) {
+        var list = res.candidates || [];
+        if (!list.length) { toast("没找到，请手动填写完整路径"); return; }
+        $("exe").value = list[0];
+        toast("找到 " + list.length + " 个，已填入第一个");
+      })
+      .catch(function () { toast("扫描失败"); })
+      .finally(function () { btn.disabled = false; });
+  });
+
+  // 主题
+  function applyTheme(t) {
+    document.documentElement.dataset.theme = t;
+    localStorage.setItem("qt.theme", t);
+    $("themeBtn").textContent = t === "dark" ? "切换浅色" : "切换深色";
+  }
+  $("themeBtn").addEventListener("click", function () {
+    applyTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
+  });
+  var qs = new URLSearchParams(location.search || "");
+  var th = qs.get("theme");
+  applyTheme((th === "dark" || th === "light") ? th : (localStorage.getItem("qt.theme") || "light"));
+
+  loadConfig().then(function (cfg) {
+    if (cfg && !cfg.has_key) $("key").focus();
+    document.getElementById("dataDir").textContent = (cfg && cfg.data_dir ? cfg.data_dir : "项目目录") + "\\config.json";
+  });
+})();
+</script>
+</body>
+</html>

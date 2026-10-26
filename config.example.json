@@ -1,0 +1,15 @@
+{
+  "deepseek_api_key": "在这里填你的 DeepSeek API Key",
+  "deepseek_base_url": "https://api.deepseek.com",
+  "deepseek_model": "deepseek-chat",
+  "napcat_base_url": "http://127.0.0.1:3000",
+  "napcat_access_token": "",
+  "napcat_qq_uin": "你的QQ号（填了才能快速登录、免扫码）",
+  "napcat_exe": "C:\\NapCat\\NapCatWinBootMain.exe",
+  "target_groups": [],
+  "history_count": 50,
+  "board_port": 8080,
+  "poll_interval_seconds": 180,
+  "auto_open_browser": true,
+  "napcat_wait_seconds": 90
+}

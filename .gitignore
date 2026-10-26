@@ -1,0 +1,28 @@
+# 个人配置与识别结果：含 API Key、QQ 号、真实群聊内容，不要提交到公开仓库
+config.json
+/todos.json
+/seen.json
+/ignore_keywords.json
+/logs/
+*.bak
+
+# 演示数据是编造的，要提交
+!docs/demo-data/todos.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# 演示实例运行时产生的日志与状态
+docs/demo-data/logs/
+docs/demo-data/seen.json
+docs/demo-data/config.json
